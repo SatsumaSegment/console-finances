@@ -1,3 +1,4 @@
+// Finances array - starter code.
 var finances = [
   ['Jan-2010', 867884],
   ['Feb-2010', 984655],
@@ -84,5 +85,65 @@ var finances = [
   ['Nov-2016', 795914],
   ['Dec-2016', 60988],
   ['Jan-2017', 138230],
-  ['Feb-2017', 671099],
+  ['Feb-2017', 671099]
 ];
+
+// Declare all variables to be displayed in console
+var totalMonths = 0;        // Total number of months in finances array
+var totalMoney = 0;         // Total profits/losses
+var averageChange = 0;      // Average of changes in profit/losses
+var greatestIncrease = 0;   // Greatest increase in profit/losses
+var greatestDecrease = 0;   // Greatest decrease in profit/losses
+var increaseMonth = ""      // Month with greatest increase in profits/losses
+var decreaseMonth = ""      // Month with greatest decrease in profits/losses
+
+// Helper variables
+var changes = [];     // Array to store all changes in profit/losses
+var changesTotal = 0; // Variable to store total of all changes in profit/losses
+
+// Total months is equal to amount of rows in finances array.
+totalMonths = finances.length;
+
+// Loop finances array to get total profits/losses and all changes in profits/losses
+// Use `finances.length - 1` so we can use `finances[i+1]` for changes array
+for (var i = 0; i < finances.length - 1; i++) {
+  totalMoney += finances[i][1];
+  // Use 'if' conditional to make sure we get the last number from finances array
+  if (i === finances.length - 2) {
+    totalMoney += finances[i+1][1];
+  }
+
+  // Push all profits/losses to changes array
+  changes.push(finances[i+1][1] - finances[i][1]);
+}
+
+// Loop changes array to get total of all changes and greatest increase/decrease in profits/losses
+for (var i = 0; i < changes.length; i++) {
+  changesTotal += changes[i]; // Log total of all changes
+
+  // Use 'if' conditional to store the highest number in greatestIncrease
+  if (greatestIncrease < changes[i]) {
+    greatestIncrease = changes[i];
+    increaseMonth = finances[i+1][0]; // Get the month of greatest increase (i + 1)
+  }
+
+  // Use `if` conditional to store the lowest number in greatestDecrease
+  if (greatestDecrease > changes[i]) {
+    greatestDecrease = changes[i];
+    decreaseMonth = finances[i+1][0]; // Get the month of greatest decrease (i + 1)
+  }
+
+}
+
+// Get average of changes in profits/losses by dividing changesTotal by number of elements in changes array
+// and round to 2 decimal places
+averageChange = Math.round((changesTotal / changes.length) * 100) / 100;
+
+// Log all information to the console
+console.log("Financial Analysis");
+console.log("-----------------------------------------------------------------");
+console.log("Total Months: " + totalMonths);
+console.log("Total: $" + totalMoney);
+console.log("Average Change: $" + averageChange);
+console.log("Greatest Increase in Profits/Losses: " + increaseMonth + " ($" + greatestIncrease + ")");
+console.log("Greatest Decrease in Profits/Losses: " + decreaseMonth + " ($" + greatestDecrease + ")");
