@@ -29,7 +29,7 @@ N/A
 
 ## Usage
 
-The program can be accessed via this link:
+The program can be accessed via this link: https://satsumasegment.github.io/console-finances/
 
 To view the output, right-click -> select "Inspect" or "Inspect Element"-> click the 'console' tab. (See images below)
 
