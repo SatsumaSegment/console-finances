@@ -29,7 +29,7 @@ N/A
 
 ## Usage
 
-The program can be accessed via this link: https://satsumasegment.github.io/console-finances/
+The program can be accessed via this link: [https://satsumasegment.github.io/console-finances/](https://satsumasegment.github.io/console-finances-bootcamp-challenge/)
 
 To view the output, right-click -> select "Inspect" or "Inspect Element"-> click the 'console' tab. (See images below)
 
